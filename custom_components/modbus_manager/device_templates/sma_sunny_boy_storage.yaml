@@ -1,0 +1,115 @@
+# SMA Sunny Boy Storage template for Modbus Manager
+#
+# Initial read-only template for:
+# - SBS2.5-1VL-10
+# - SBS3.7-10
+# - SBS5.0-10
+# - SBS6.0-10
+#
+# WARNING:
+# Register values must be validated against the SMA Modbus profile
+# installed on the actual device.
+# No writable entities are included.
+
+name: "SMA Sunny Boy Storage"
+display_name: "SMA Sunny Boy Storage"
+description: >-
+  Read-only Modbus TCP template for SMA Sunny Boy Storage battery
+  inverters. Initial support includes battery state of charge,
+  battery inverter power and lifetime energy.
+
+manufacturer: "SMA"
+model: "Sunny Boy Storage"
+version: 0.1.0
+default_prefix: "SMA_SBS"
+default_slave_id: 3
+type: "Battery_Inverter"
+firmware_version: "0.1.0"
+
+dynamic_config:
+  valid_models:
+    "SBS2.5-1VL-10":
+      phases: 1
+      battery_enabled: true
+      max_ac_output_power: 2500
+
+    "SBS3.7-10":
+      phases: 1
+      battery_enabled: true
+      max_ac_output_power: 3700
+
+    "SBS5.0-10":
+      phases: 1
+      battery_enabled: true
+      max_ac_output_power: 5000
+
+    "SBS6.0-10":
+      phases: 1
+      battery_enabled: true
+      max_ac_output_power: 6000
+
+  firmware_version:
+    description: "SMA Modbus register profile"
+    options:
+      "0.1.0": "Initial read-only SBS profile"
+    default: "0.1.0"
+
+sensors:
+  - name: "Battery State of Charge"
+    unique_id: "battery_state_of_charge"
+    address: 30845
+    input_type: "input"
+    data_type: "uint32"
+    count: 2
+    scale: 1
+    unit_of_measurement: "%"
+    device_class: "battery"
+    state_class: "measurement"
+    precision: 0
+    byte_order: "big"
+    swap: "word"
+
+  - name: "Battery Inverter AC Power"
+    unique_id: "battery_inverter_ac_power"
+    address: 30775
+    input_type: "input"
+    data_type: "int32"
+    count: 2
+    scale: 1
+    unit_of_measurement: "W"
+    device_class: "power"
+    state_class: "measurement"
+    byte_order: "big"
+    swap: "word"
+
+  - name: "Battery Inverter Total Energy"
+    unique_id: "battery_inverter_total_energy"
+    address: 30529
+    input_type: "input"
+    data_type: "uint32"
+    count: 2
+    scale: 1
+    unit_of_measurement: "Wh"
+    device_class: "energy"
+    state_class: "total_increasing"
+    byte_order: "big"
+    swap: "word"
+
+binary_sensors:
+  - name: "Battery Active"
+    unique_id: "battery_active"
+    template: "{PREFIX}_battery_inverter_ac_power"
+    device_class: "power"
+    condition: "{PREFIX}_battery_inverter_ac_power != 0"
+
+  - name: "Battery Charging"
+    unique_id: "battery_charging"
+    template: "{PREFIX}_battery_inverter_ac_power"
+    device_class: "battery_charging"
+    condition: "{PREFIX}_battery_inverter_ac_power < 0"
+
+  - name: "Battery Discharging"
+    unique_id: "battery_discharging"
+    template: "{PREFIX}_battery_inverter_ac_power"
+    device_class: "power"
+    condition: "{PREFIX}_battery_inverter_ac_power > 0"
