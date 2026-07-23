@@ -67,7 +67,6 @@ sensors:
     state_class: "measurement"
     precision: 0
     byte_order: "big"
-    swap: "word"
 
   - name: "Battery Inverter AC Power"
     unique_id: "battery_inverter_ac_power"
@@ -80,7 +79,6 @@ sensors:
     device_class: "power"
     state_class: "measurement"
     byte_order: "big"
-    swap: "word"
 
   - name: "Battery Inverter Total Energy"
     unique_id: "battery_inverter_total_energy"
@@ -93,23 +91,37 @@ sensors:
     device_class: "energy"
     state_class: "total_increasing"
     byte_order: "big"
-    swap: "word"
 
-binary_sensors:
+calculated:
   - name: "Battery Active"
     unique_id: "battery_active"
-    template: "{PREFIX}_battery_inverter_ac_power"
+    type: "binary_sensor"
+    state: >-
+      {{ states('sensor.{PREFIX}_battery_inverter_ac_power') | float(0) != 0 }}
+    availability: >-
+      {{ states('sensor.{PREFIX}_battery_inverter_ac_power')
+         not in ['unknown', 'unavailable', 'none', ''] }}
     device_class: "power"
-    condition: "{PREFIX}_battery_inverter_ac_power != 0"
+    icon: "mdi:battery-sync"
 
   - name: "Battery Charging"
     unique_id: "battery_charging"
-    template: "{PREFIX}_battery_inverter_ac_power"
-    device_class: "battery_charging"
-    condition: "{PREFIX}_battery_inverter_ac_power < 0"
+    type: "binary_sensor"
+    state: >-
+      {{ states('sensor.{PREFIX}_battery_inverter_ac_power') | float(0) < 0 }}
+    availability: >-
+      {{ states('sensor.{PREFIX}_battery_inverter_ac_power')
+         not in ['unknown', 'unavailable', 'none', ''] }}
+    device_class: "power"
+    icon: "mdi:battery-arrow-up"
 
   - name: "Battery Discharging"
     unique_id: "battery_discharging"
-    template: "{PREFIX}_battery_inverter_ac_power"
+    type: "binary_sensor"
+    state: >-
+      {{ states('sensor.{PREFIX}_battery_inverter_ac_power') | float(0) > 0 }}
+    availability: >-
+      {{ states('sensor.{PREFIX}_battery_inverter_ac_power')
+         not in ['unknown', 'unavailable', 'none', ''] }}
     device_class: "power"
-    condition: "{PREFIX}_battery_inverter_ac_power > 0"
+    icon: "mdi:battery-arrow-down"
