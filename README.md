@@ -18,7 +18,7 @@ A modular, template-based Modbus Manager for Home Assistant with predefined devi
    - Go to **Integrations**
    - Click the three dots menu (⋮) in the top right
    - Select **Custom repositories**
-   - Add repository URL: `https://github.com/TCzerny/ha-modbus-manager`
+   - Add repository URL: `https://github.com/firstusing/ha-modbus-manager`
    - Set category to **Integration**
    - Click **Add**
 
@@ -35,7 +35,7 @@ A modular, template-based Modbus Manager for Home Assistant with predefined devi
 
 ### Manual Installation
 
-1. **Download the latest release** from the [Releases page](https://github.com/TCzerny/ha-modbus-manager/releases)
+1. **Download the latest release** from the [Releases page](https://github.com/firstusing/ha-modbus-manager/releases)
 
 2. **Copy the integration**:
    - Extract the downloaded file
@@ -96,7 +96,7 @@ A modular, template-based Modbus Manager for Home Assistant with predefined devi
 
 1. **Clone Repository**:
    ```bash
-   git clone https://github.com/TCzerny/ha-modbus-manager.git
+   git clone https://github.com/firstusing/ha-modbus-manager.git
    cd ha-modbus-manager
    ```
 
@@ -145,7 +145,7 @@ See the [Dashboard Examples README](Dashboard-Examples/README.md) for installati
 
 ## 📊 Available Templates
 
-**Device-specific** register and model documentation lives in [`docs/`](docs/) (linked from the [Wiki home](https://github.com/TCzerny/ha-modbus-manager/wiki) and below). **General** guides and the **template YAML reference** are on the [GitHub Wiki](https://github.com/TCzerny/ha-modbus-manager/wiki).
+**Device-specific** register and model documentation lives in [`docs/`](docs/) (linked from the [Wiki home](https://github.com/firstusing/ha-modbus-manager/wiki) and below). **General** guides and the **template YAML reference** are on the [GitHub Wiki](https://github.com/firstusing/ha-modbus-manager/wiki).
 
 ## 🚧 Known Issues
 
@@ -155,16 +155,16 @@ See the [Dashboard Examples README](Dashboard-Examples/README.md) for installati
 
 ## 🤝 Contributing
 
-Full workflow (fork, layout, documentation, PRs, testing): **[Contributing (GitHub Wiki)](https://github.com/TCzerny/ha-modbus-manager/wiki/Contributing)**.
+Full workflow (fork, layout, documentation, PRs, testing): **[Contributing (GitHub Wiki)](https://github.com/firstusing/ha-modbus-manager/wiki/Contributing)**.
 
-Template YAML (fields, types, dynamic config, examples): **[Template Reference (Wiki)](https://github.com/TCzerny/ha-modbus-manager/wiki/Template-Reference)**.
+Template YAML (fields, types, dynamic config, examples): **[Template Reference (Wiki)](https://github.com/firstusing/ha-modbus-manager/wiki/Template-Reference)**.
 
 The repo file [`CONTRIBUTING.md`](CONTRIBUTING.md) is a short entry point with the same links.
 
 ## 📚 Documentation
 
-- **[GitHub Wiki](https://github.com/TCzerny/ha-modbus-manager/wiki)** — User guide, template YAML reference, capabilities, migrations. **Device-specific** register and model docs live only in this repo (`docs/README_*.md` below).
-- **[Template reference (Wiki)](https://github.com/TCzerny/ha-modbus-manager/wiki/Template-Reference)** — Full YAML template documentation
+- **[GitHub Wiki](https://github.com/firstusing/ha-modbus-manager/wiki)** — User guide, template YAML reference, capabilities, migrations. **Device-specific** register and model docs live only in this repo (`docs/README_*.md` below).
+- **[Template reference (Wiki)](https://github.com/firstusing/ha-modbus-manager/wiki/Template-Reference)** — Full YAML template documentation
 - **[docs/SERVICES.md](docs/SERVICES.md)** — Integration services reference
 - **[Sungrow SHx Dynamic](docs/README_sungrow_shx_dynamic.md)** - Complete dynamic template documentation
 - **[Sungrow SG Dynamic](docs/README_sungrow_sg_dynamic.md)** - Dynamic SG template documentation
@@ -191,15 +191,15 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Home Assistant Community** for the great platform
 - **Device Manufacturers** for Modbus documentation
 - **Community Contributors** for device testing
-- **[Sean Lano](https://github.com/seanlano)** ([@seanlano](https://github.com/seanlano)) for the **Victron EV Charging Station** template ([PR #45](https://github.com/TCzerny/ha-modbus-manager/pull/45))
-- **[Jam3s97](https://github.com/Jam3s97)** ([@Jam3s97](https://github.com/Jam3s97)) for **Sungrow SH*RS register mapping** fixes ([PR #68](https://github.com/TCzerny/ha-modbus-manager/pull/68))
+- **[Sean Lano](https://github.com/seanlano)** ([@seanlano](https://github.com/seanlano)) for the **Victron EV Charging Station** template ([PR #45](https://github.com/firstusing/ha-modbus-manager/pull/45))
+- **[Jam3s97](https://github.com/Jam3s97)** ([@Jam3s97](https://github.com/Jam3s97)) for **Sungrow SH*RS register mapping** fixes ([PR #68](https://github.com/firstusing/ha-modbus-manager/pull/68))
 - **[mkaiser](https://github.com/mkaiser/Sungrow-SHx-Inverter-Modbus-Home-Assistant)** for the outstanding Sungrow SHx Modbus implementation
 - **photovoltaikforum.com** and **forum.iobroker.net** communities for reverse-engineering efforts
 
 ## 📞 Support
 
-- **Issues**: [GitHub Issues](https://github.com/TCzerny/ha-modbus-manager/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/TCzerny/ha-modbus-manager/discussions)
-- **Wiki**: [GitHub Wiki](https://github.com/TCzerny/ha-modbus-manager/wiki)
+- **Issues**: [GitHub Issues](https://github.com/firstusing/ha-modbus-manager/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/firstusing/ha-modbus-manager/discussions)
+- **Wiki**: [GitHub Wiki](https://github.com/firstusing/ha-modbus-manager/wiki)
 
 ---
