@@ -17,7 +17,7 @@ display_name: "SMA Sunny Tripower/Boy Series Inverter"
 description: "Dynamic template for SMA Sunny Tripower and Sunny Boy series inverters. Supports PV, grid monitoring."
 manufacturer: "SMA"
 model: "Sunny Tripower/Boy Series Dynamic"
-version: 1.0.1
+version: 1.1.0
 default_prefix: "SMA"
 default_slave_id: 1
 type: "PV_Inverter"
@@ -28,6 +28,7 @@ dynamic_config:
 
   valid_models:
     # Sunny Tripower Series (Three Phase, 5-20kW)
+    "STP5.0-3AV-40": {phases: 3, mppt_count: 2, string_count: 2, battery_enabled: false, max_ac_output_power: 5000}
     "STP-5000TL": {phases: 3, mppt_count: 2, string_count: 2, battery_enabled: false, max_ac_output_power: 5000}
     "STP-6000TL": {phases: 3, mppt_count: 2, string_count: 2, battery_enabled: false, max_ac_output_power: 6000}
     "STP-7000TL": {phases: 3, mppt_count: 2, string_count: 2, battery_enabled: false, max_ac_output_power: 7000}
@@ -36,7 +37,7 @@ dynamic_config:
     "STP-12000TL": {phases: 3, mppt_count: 2, string_count: 2, battery_enabled: false, max_ac_output_power: 12000}
     "STP-15000TL": {phases: 3, mppt_count: 2, string_count: 2, battery_enabled: false, max_ac_output_power: 15000}
     "STP-20000TL": {phases: 3, mppt_count: 2, string_count: 2, battery_enabled: false, max_ac_output_power: 20000}
-
+    
     # Sunny Boy Series (Single Phase, 2.5-5kW) - Preliminary support
     "SB-2500": {phases: 1, mppt_count: 1, string_count: 1, battery_enabled: false, max_ac_output_power: 2500}
     "SB-3000": {phases: 1, mppt_count: 1, string_count: 1, battery_enabled: false, max_ac_output_power: 3000}
